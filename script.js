@@ -49,3 +49,42 @@ function openEmailDS() {
         <p>DS Hughes</p>
     `;
 }
+function openInitialActions() {
+    document.getElementById('main-window').innerHTML = `
+        <h2>Initial Investigation Actions</h2>
+
+        <p>What do you want to do first?</p>
+
+        <button onclick="chooseAction('scene')">Attend the scene</button>
+        <button onclick="chooseAction('victim')">Speak to the victim</button>
+        <button onclick="chooseAction('cctv')">Check local CCTV</button>
+        <button onclick="chooseAction('pnc')">Run intelligence checks</button>
+    `;
+}
+
+function chooseAction(action) {
+    let response = "";
+
+    if (action === "scene") {
+        response = "Good. Attending the scene gives you the best chance of identifying forensic opportunities before evidence is lost.";
+    }
+
+    if (action === "victim") {
+        response = "Useful, but you should avoid relying solely on the victim account before checking the physical scene.";
+    }
+
+    if (action === "cctv") {
+        response = "Good line of enquiry, but CCTV is time-sensitive and should run alongside scene preservation.";
+    }
+
+    if (action === "pnc") {
+        response = "Too early. Intelligence checks help, but you need offence details and evidence first.";
+    }
+
+    document.getElementById('main-window').innerHTML = `
+        <h2>Decision Recorded</h2>
+        <p>${response}</p>
+        <button onclick="openInitialActions()">Try another action</button>
+        <button onclick="openCaseFile()">Return to Case File</button>
+    `;
+}
