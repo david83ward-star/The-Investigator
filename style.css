@@ -54,3 +54,18 @@
 .main-window {
   left: 140px;
 }
+.email-list {
+  margin: 20px;
+}
+
+.email-item {
+  background: #f0f0f0;
+  border: 2px solid #999;
+  padding: 12px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.email-item:hover {
+  background: #cce0ff;
+}
