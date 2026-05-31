@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Investigator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="game">
+
+    <section id="title-screen" class="screen active">
+      <h1>THE INVESTIGATOR</h1>
+      <p class="subtitle">A detective casework simulator</p>
+
+      <button onclick="showCharacterScreen()">New Game</button>
+      <button onclick="continueGame()">Continue</button>
+      <button onclick="loadGame()">Load Game</button>
+    </section>
+
+    <section id="character-screen" class="screen">
+      <h2>New Starter Details</h2>
+
+      <label>Your name:</label>
+      <input id="player-name" type="text" placeholder="Detective Constable..." />
+
+      <label>Pronouns:</label>
+      <input id="player-pronouns" type="text" placeholder="he/him, she/her, they/them" />
+
+      <button onclick="startGame()">Start First Day</button>
+    </section>
+
+    <section id="desktop-screen" class="screen">
+      <div class="top-bar">
+        <span>METROPOLITAN POLICE SECURE TERMINAL</span>
+        <span id="officer-name"></span>
+      </div>
+
+      <div class="desktop">
+        <div class="sidebar">
+          <button onclick="openInbox()">Inbox</button>
+          <button onclick="openCaseFile()">Case File</button>
+          <button onclick="openPNC()">PNC Search</button>
+          <button onclick="openEvidence()">Evidence</button>
+        </div>
+
+        <div class="main-window" id="main-window">
+          <h2>Welcome</h2>
+          <p>Select an option from the left-hand menu.</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
