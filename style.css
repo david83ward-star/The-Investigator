@@ -1,71 +1,129 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0d3b1f;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+}
+
+#title-screen {
+    text-align: center;
+    color: white;
+    padding-top: 120px;
+    height: 100vh;
+}
+
+#title-screen h1 {
+    font-size: 4rem;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.taskbar {
+    height: 35px;
+    background: #001c33;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 15px;
+    box-sizing: border-box;
+}
+
+.desktop {
+    height: calc(100vh - 35px);
+    position: relative;
+    background: #1b5e20;
+}
+
 .desktop-icon {
-  width: 90px;
-  text-align: center;
-  color: #ffffff;
-  cursor: pointer;
-  margin-bottom: 20px;
-  user-select: none;
+    width: 80px;
+    text-align: center;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
 }
 
-.desktop-icon:nth-of-type(1) {
-  position: absolute;
-  left: 25px;
-  top: 30px;
+.desktop-icon:nth-child(1) {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
-.desktop-icon:nth-of-type(2) {
-  position: absolute;
-  left: 25px;
-  top: 130px;
+.desktop-icon:nth-child(2) {
+    position: absolute;
+    top: 120px;
+    left: 20px;
 }
 
-.desktop-icon:nth-of-type(3) {
-  position: absolute;
-  left: 25px;
-  top: 230px;
+.desktop-icon:nth-child(3) {
+    position: absolute;
+    top: 220px;
+    left: 20px;
 }
 
-.desktop-icon:nth-of-type(4) {
-  position: absolute;
-  left: 25px;
-  top: 330px;
+.desktop-icon:nth-child(4) {
+    position: absolute;
+    top: 320px;
+    left: 20px;
 }
 
-.icon-box {
-  width: 54px;
-  height: 54px;
-  margin: 0 auto 6px;
-  background: #d8d8d8;
-  color: #111;
-  border: 2px solid #fff;
-  border-right-color: #555;
-  border-bottom-color: #555;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
+.window {
+    background: #d9d9d9;
+    border: 2px solid #666;
 }
 
-.desktop-icon:hover span {
-  background: #003b7a;
-  color: white;
+.login-window {
+    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.window-title {
+    background: #003366;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
 }
 
 .main-window {
-  left: 140px;
+    position: absolute;
+    top: 30px;
+    left: 140px;
+    right: 30px;
+    bottom: 30px;
 }
-.email-list {
-  margin: 20px;
+
+.window-content {
+    padding: 20px;
+    overflow-y: auto;
+    height: calc(100% - 40px);
 }
 
 .email-item {
-  background: #f0f0f0;
-  border: 2px solid #999;
-  padding: 12px;
-  margin-bottom: 10px;
-  cursor: pointer;
+    background: white;
+    border: 1px solid #999;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .email-item:hover {
-  background: #cce0ff;
+    background: #e8f0ff;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    box-sizing: border-box;
 }
