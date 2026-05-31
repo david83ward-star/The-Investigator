@@ -8,52 +8,68 @@
 </head>
 <body>
 
-  <div id="game">
+<div id="game">
 
-    <section id="title-screen" class="screen active">
-      <h1>THE INVESTIGATOR</h1>
-      <p class="subtitle">A detective casework simulator</p>
+  <section id="title-screen" class="screen active">
+    <h1>THE INVESTIGATOR</h1>
+    <p class="subtitle">Metropolitan Police Casework System</p>
+    <button onclick="showCharacterScreen()">New Game</button>
+    <button onclick="continueGame()">Continue</button>
+    <button onclick="loadGame()">Load Game</button>
+  </section>
 
-      <button onclick="showCharacterScreen()">New Game</button>
-      <button onclick="continueGame()">Continue</button>
-      <button onclick="loadGame()">Load Game</button>
-    </section>
+  <section id="character-screen" class="screen">
+    <div class="login-card">
+      <h2>New Starter Login</h2>
 
-    <section id="character-screen" class="screen">
-      <h2>New Starter Details</h2>
+      <label>Name</label>
+      <input id="player-name" type="text" placeholder="DC Smith" />
 
-      <label>Your name:</label>
-      <input id="player-name" type="text" placeholder="Detective Constable..." />
-
-      <label>Pronouns:</label>
+      <label>Pronouns</label>
       <input id="player-pronouns" type="text" placeholder="he/him, she/her, they/them" />
 
-      <button onclick="startGame()">Start First Day</button>
-    </section>
+      <button onclick="startGame()">Enter System</button>
+    </div>
+  </section>
 
-    <section id="desktop-screen" class="screen">
-      <div class="top-bar">
-        <span>METROPOLITAN POLICE SECURE TERMINAL</span>
-        <span id="officer-name"></span>
+  <section id="desktop-screen" class="screen">
+    <div class="top-bar">
+      <span>SECURE CASEWORK TERMINAL</span>
+      <span id="officer-name"></span>
+    </div>
+
+    <div class="desktop">
+
+      <div class="desktop-icon" onclick="openInbox()">
+        <div class="icon-box">✉</div>
+        <span>Inbox</span>
       </div>
 
-      <div class="desktop">
-        <div class="sidebar">
-          <button onclick="openInbox()">Inbox</button>
-          <button onclick="openCaseFile()">Case File</button>
-          <button onclick="openPNC()">PNC Search</button>
-          <button onclick="openEvidence()">Evidence</button>
-        </div>
-
-        <div class="main-window" id="main-window">
-          <h2>Welcome</h2>
-          <p>Select an option from the left-hand menu.</p>
-        </div>
+      <div class="desktop-icon" onclick="openCaseFile()">
+        <div class="icon-box">📁</div>
+        <span>Case File</span>
       </div>
-    </section>
 
-  </div>
+      <div class="desktop-icon" onclick="openPNC()">
+        <div class="icon-box">⌕</div>
+        <span>PNC</span>
+      </div>
 
-  <script src="script.js"></script>
+      <div class="desktop-icon" onclick="openEvidence()">
+        <div class="icon-box">▣</div>
+        <span>Evidence</span>
+      </div>
+
+      <div class="main-window" id="main-window">
+        <h2>Welcome</h2>
+        <p>Select an item from the desktop.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
