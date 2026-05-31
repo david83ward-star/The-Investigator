@@ -1,3 +1,46 @@
+function hideAllScreens() {
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
+}
+
+function showCharacterScreen() {
+    hideAllScreens();
+    document.getElementById('character-screen').classList.add('active');
+}
+
+function startGame() {
+    const name = document.getElementById('player-name').value || "Detective";
+
+    localStorage.setItem('playerName', name);
+    document.getElementById('officer-name').textContent = name;
+
+    hideAllScreens();
+    document.getElementById('desktop-screen').classList.add('active');
+
+    openInbox();
+}
+
+function continueGame() {
+    const name = localStorage.getItem('playerName');
+
+    if (!name) {
+        alert("No saved game found.");
+        return;
+    }
+
+    document.getElementById('officer-name').textContent = name;
+
+    hideAllScreens();
+    document.getElementById('desktop-screen').classList.add('active');
+
+    openInbox();
+}
+
+function loadGame() {
+    alert("Load Game coming in a future version.");
+}
+
 function openInbox() {
     document.getElementById('main-window').innerHTML = `
         <h2>Inbox</h2>
@@ -20,6 +63,7 @@ function openEmailDI() {
     document.getElementById('main-window').innerHTML = `
         <button onclick="openInbox()">Back to Inbox</button>
         <h2>DI Morgan</h2>
+
         <p><strong>Subject:</strong> Welcome to CID</p>
 
         <p>Detective,</p>
@@ -38,17 +82,64 @@ function openEmailDS() {
     document.getElementById('main-window').innerHTML = `
         <button onclick="openInbox()">Back to Inbox</button>
         <h2>DS Hughes</h2>
+
         <p><strong>Subject:</strong> First Investigation</p>
 
         <p>Morning.</p>
 
         <p>We have a straightforward burglary for you to review.</p>
 
-        <p>Review the case file and identify any investigative opportunities.</p>
+        <p>Victim returned home yesterday evening to find the rear kitchen window smashed. Jewellery, cash and a portable computer are reported stolen.</p>
+
+        <p>Review the case file and identify your first investigative actions.</p>
+
+        <button onclick="openInitialActions()">Start Investigation</button>
 
         <p>DS Hughes</p>
     `;
 }
+
+function openCaseFile() {
+    document.getElementById('main-window').innerHTML = `
+        <h2>Case File</h2>
+
+        <p><strong>Crime:</strong> Residential Burglary</p>
+        <p><strong>Location:</strong> 24 Willow Close</p>
+        <p><strong>Date:</strong> 14 September 1987</p>
+        <p><strong>Victim:</strong> Eleanor Price</p>
+
+        <p>
+        Victim returned home at approximately 18:15hrs and found the rear kitchen window smashed.
+        Property missing includes a gold necklace, £250 cash and a portable computer.
+        </p>
+
+        <button onclick="openInitialActions()">Choose Initial Action</button>
+    `;
+}
+
+function openPNC() {
+    document.getElementById('main-window').innerHTML = `
+        <h2>PNC Search</h2>
+
+        <p>Database connection established.</p>
+
+        <p>No subject currently selected.</p>
+    `;
+}
+
+function openEvidence() {
+    document.getElementById('main-window').innerHTML = `
+        <h2>Evidence</h2>
+
+        <ul>
+            <li>Victim statement</li>
+            <li>Crime scene photographs</li>
+            <li>Forensic submission pending</li>
+            <li>House-to-house enquiries not yet completed</li>
+        </ul>
+    `;
+}
+
 function openInitialActions() {
     document.getElementById('main-window').innerHTML = `
         <h2>Initial Investigation Actions</h2>
@@ -74,7 +165,7 @@ function chooseAction(action) {
     }
 
     if (action === "cctv") {
-        response = "Good line of enquiry, but CCTV is time-sensitive and should run alongside scene preservation.";
+        response = "Good line of enquiry. CCTV is time-sensitive and should run alongside scene preservation.";
     }
 
     if (action === "pnc") {
@@ -83,7 +174,9 @@ function chooseAction(action) {
 
     document.getElementById('main-window').innerHTML = `
         <h2>Decision Recorded</h2>
+
         <p>${response}</p>
+
         <button onclick="openInitialActions()">Try another action</button>
         <button onclick="openCaseFile()">Return to Case File</button>
     `;
